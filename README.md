@@ -20,10 +20,10 @@ This tool scans RTSP streams on IP cameras to find valid RTSP routes and optiona
     git clone https://github.com/yourusername/rtsp-route-scanner.git
     ```
 
-2. Install the required dependencies (if needed, e.g., `colorama`):
+2. Install the required dependencies using `requirements.txt`:
 
     ```bash
-    pip install colorama
+    pip install -r requirements.txt
     ```
 
 ## Usage
