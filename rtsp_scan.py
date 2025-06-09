@@ -26,7 +26,15 @@ def parse_ip_range(ip_range):
         start_ip, end_ip = ip_range.split('-')
         start = ipaddress.IPv4Address(start_ip)
         end = ipaddress.IPv4Address(end_ip)
-        return [str(ip) for ip in ipaddress.summarize_address_range(start, end)]
+
+        if int(end) < int(start):
+            raise ValueError("End IP must be greater than or equal to start IP")
+
+        ip_list = []
+        for ip_int in range(int(start), int(end) + 1):
+            ip_list.append(str(ipaddress.IPv4Address(ip_int)))
+
+        return ip_list
     except Exception as e:
         print(f"Error parsing IP range: {e}")
         return []
